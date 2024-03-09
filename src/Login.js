@@ -133,10 +133,15 @@ function Login() {
                     </button>
                 </div>
             </form>
-                <Modal isOpen={isModalOpen} onRequestClose={closeModal}>
+            {/* isOpen = {isModalOpen} */}
+                <Modal isOpen={isModalOpen} onRequestClose={closeModal}style={{ overlay: { backgroundColor: 'rgba(0, 0, 0, 0.7)' } }}>
                     <div className="PassWdMismatch">
-                        <p id="PopupText">이메일 또는 비밀번호가 틀렸습니다.</p>
-                        <button id="PopupButton">확인</button>
+                        <p>이메일 또는 비밀번호가 틀렸습니다.</p>
+                        <button onClick={closeModal}>
+                            <div>
+                                <p>확인</p>
+                            </div>
+                        </button>
                     </div>
                 </Modal>
             <div id='findPasswd'>

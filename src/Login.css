@@ -157,4 +157,70 @@
     line-height: 20px;
     letter-spacing: -0.35px;
   }
+ 
+  /*여기부터 모달 스타일*/
+  
+  .ReactModal__Overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #000, 0.7; */
+  }
+  .ReactModal__Content {
+    border: none;
+    outline: none;
+    padding: 0;
+    background: none;
+    max-width: 360px;
+    max-height: 144px;
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, 100%);
+    border-radius: 12px;
+    border: none;
+  }
+  .PassWdMismatch {
+    display: flex;
+    padding: 36px 16px 16px 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .PassWdMismatch p {
+    color: var(--Grays-gray900, #212121);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px; 
+    letter-spacing: -0.35px;
+  }
+
+  .PassWdMismatch button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+
+    /* style */
+    border-radius: 8px;
+    border: none;
+    background: var(--Colors-main-color, #6869FF);  
+  }
+
+  .PassWdMismatch button div {
+    display: flex;
+    padding: 14px 16px;
+    align-items: center;
+  }
+  .PassWdMismatch button div p {
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: -0.4px;
+  }
 

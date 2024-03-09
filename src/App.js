@@ -2,7 +2,7 @@ import LandingPage from "./LandingPage";
 import Login from "./Login";
 import SignIn from "./SignIn";
 import {Routes, Route, BrowserRouter, Link } from "react-router-dom";
-import Modal from 'react-modal';
+
 
 function App() {
   return (
