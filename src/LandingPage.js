@@ -33,13 +33,13 @@ function LandingPage() {
           <p id='mainText'>새로운 인연의 시작, 지금 공팅을 알아보세요!</p>
         </div>
         <div className="goTextBox">
-          <a href="./">공팅 알아보기
+          <Link to="./">공팅 알아보기
             <div id='right-arrow'>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
   <path d="M10 6L15.6569 11.6569L10 17.3137" stroke="#6869FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="menuBox">

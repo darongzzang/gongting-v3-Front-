@@ -1,6 +1,7 @@
 import LandingPage from "./LandingPage";
 import Login from "./Login";
-import SignIn from "./SignIn";
+import Signup from "./Signup";
+import SignupInfo from "./SignupInfo";
 import {Routes, Route, BrowserRouter, Link } from "react-router-dom";
 
 
@@ -9,7 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/SignupInfo" element={<SignupInfo />} />
       </Routes>
   );
 }

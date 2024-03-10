@@ -1,4 +1,5 @@
 import './Login.css';
+import './Signup'
 import axios from 'axios';
 import React, {useState} from 'react';
 import Modal from 'react-modal';
@@ -46,7 +47,7 @@ function Login() {
         checkButtonActivation();
     }
     const checkPasswordValid = () => {
-        const isValid = Password.length >= 5;
+        const isValid = Password.length >= 7;
         setIsValidPassword(isValid);
         checkButtonActivation();
     }
@@ -104,7 +105,7 @@ function Login() {
                 </div>
                 <div className='LoginLogoBtm'>
                     <p>처음 이용하시나요?</p>
-                    <Link to='./' >회원가입</Link>
+                    <Link to='/Signup' >회원가입</Link>
                 </div>
             </div>
             <form>

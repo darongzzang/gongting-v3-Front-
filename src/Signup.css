@@ -1,0 +1,205 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400, 600, 700;
+    font-style: normal;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Pretendard;
+}
+Button {
+    cursor: pointer;
+}
+
+.SignupBody , .SignupInfoBody{
+    width: 100vw;
+    max-width: 360px;
+    height: 100vh;
+    max-height: 1024px;
+    margin: 0px auto;
+    background: #f0f0f0;
+    animation: gradient 15s ease infinite;
+    padding: 100px 16px 32px 16px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  
+} 
+
+  
+.top {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+.titleText {
+    align-self: stretch;
+    /* style */
+    color: var(--Grays-gray900, #212121);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+}
+.subText {
+    align-self: stretch;
+    /* style */
+    color: var(--Grays-gray700, #616161);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.35px;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 360px;
+}
+.bottom-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;  
+}
+.checkAll, .checkSep {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkAllText input, .checkSepText input{
+    display: none;
+}
+.checkAll label, .checkSep label {
+    cursor: pointer;
+    display: flex;
+}
+
+.checkAllText{
+    color: var(--Grays-gray800, #424242);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px; /* 111.111% */
+    letter-spacing: -0.45px;
+}
+.checkAllText p, .checkSepText p{
+    margin-left: 6px;
+}
+.checkSepText {
+    color: var(--Grays-gray700, #616161);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.35px;
+}
+
+.checkSep{
+    /* box-sizing: border-box; */
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background: #E5E5E5;
+}
+
+.nextBtn {
+    margin-top: 48px;
+    margin-bottom: 32px;
+    padding: 16px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    /* style */
+    border-radius: 8px;
+    border: none;
+    background: var(--Colors-main-color, #6869FF);
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+    letter-spacing: -0.4px;
+    text-decoration: none;
+}
+
+.bottom a {
+    text-decoration: none;
+}
+.inputBoxes {
+    margin-top: 80px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+.userInfoBox {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+.userInfoBoxTitle {
+    color: var(--Grays-gray900, #212121);
+    font-size: 14px;
+    font-weight: 700;
+}
+.inputBoxSub {
+    color: var(--Grays-gray500, #9E9E9E);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+}
+.userInfoBox input {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 12px;
+    justify-content: space-between;
+    align-items: center;
+
+    /* style  */
+    border-radius: 8px;
+    border: 1px solid var(--Grays-gray300, #E0E0E0);
+}
+.userInfoBox input::placeholder {
+    color: var(--Grays-gray400, #BDBDBD);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px; /* 125% */
+    letter-spacing: -0.4px;
+}
+.infoActiveBtn {
+    margin-bottom: 32px;
+    padding: 16px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+
+    /* style  */
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    transition: 0.5s;
+    background: var(--Colors-main-color, #6869FF);
+
+}
