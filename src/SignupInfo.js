@@ -42,13 +42,16 @@ function SignupInfo() {
         checkValid();
         dispatch(loginUser({email: Email, password: Password, passwordcheck: PasswordCheck}));
     }
+
+    //입력값 확인
     const checkEmailValid = () => {
         const isValid = Email.includes("@");
         setIsValidEmail(isValid);
         checkButtonActivation();
     }
     const checkPasswordValid = () => {
-        const isValid = Password.length >= 7;
+        const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/;
+        const isValid = regex.test(Password);
         setIsValidPassword(isValid);
         checkButtonActivation();
     }
@@ -58,10 +61,6 @@ function SignupInfo() {
         checkButtonActivation();
     }
 
-    const checkButtonActivation = () => {
-        const buttonDisabled = (isValidEmail && isValidPassword && isValidPasswordCheck);
-        setButtonDisabled(buttonDisabled);
-    }
     const checkValid = async () => {
         try {
             const response = await axios.post('', {email: Email, password: Password});
@@ -71,6 +70,21 @@ function SignupInfo() {
             console.error('Error checking validity:', error);
         }
     }
+    // const emailExist = () => {
+    //     if(이메일이 이미 있다면){
+    //         isEmailAlreadyExists(true);
+    //     }
+    //     else {
+    //         isEmailAlreadyExists(false);
+    //     }
+    // }
+
+    //버튼 활성화
+    const checkButtonActivation = () => {
+        const buttonDisabled = (isValidEmail && isValidPassword && isValidPasswordCheck);
+        setButtonDisabled(buttonDisabled);
+    }
+    
    
 
     return (
@@ -84,10 +98,11 @@ function SignupInfo() {
                     <p className='userInfoBoxTitle'>
                         이메일
                     </p>
-                    <p className='inputBoxSub'>
-                        추후 로그인 시 아이디로 사용되어요
+                    <p className={`${Email && !isValidEmail ? 'invalidText' : 'inputBoxSub'}`}>
+                        {Email && !isValidEmail ? '이메일을 다시 확인해주세요' : '추후 로그인 시 아이디로 사용되어요'}
                     </p>
                     <input type='email' 
+                            className={`${Email && !isValidEmail ? 'invalid' : 'userInfoBoxInput'}`}
                             value={Email}
                             onBlur={() => checkEmailValid(Email)}
                             onChange={onEmailHandler}
@@ -98,10 +113,11 @@ function SignupInfo() {
                     <p className='userInfoBoxTitle'>
                         비밀번호
                     </p>
-                    <p className='inputBoxSub'>
-                        영문, 숫자, 특수문자가 모두 들어간 8-16글자
+                    <p className={`${Password && !isValidPassword ? 'invalidText' : 'inputBoxSub'}`}>
+                        {Password && !isValidPassword ? '다시 한번 비밀번호를 확인해주세요' : '영문, 숫자, 특수문자가 모두 들어간 8-16글자'}
                     </p>
                     <input type='password' 
+                            className={`${Password && !isValidPassword ? 'invalid' : 'userInfoBoxInput'}`}
                             value={Password}
                             onBlur={() => checkPasswordValid(Password)}
                             onChange={onPasswordHandler}
@@ -112,7 +128,11 @@ function SignupInfo() {
                     <p className='userInfoBoxTitle'>
                         비밀번호 확인
                     </p>
+                    <p className={`${PasswordCheck && !isValidPasswordCheck ? 'invalidText' : 'inputBoxSub'}`}>
+                        {PasswordCheck && !isValidPasswordCheck ? '비밀번호와 일치하지 않아요' : ''}
+                    </p>
                     <input type='password'
+                        className={`${PasswordCheck && !isValidPasswordCheck ? 'invalid' : 'userInfoBoxInput'}`}
                         value={PasswordCheck}
                         onBlur={() => checkPasswordCheckValid(Password)}
                         onChange={onPasswordCheckHandler} 
@@ -125,10 +145,10 @@ function SignupInfo() {
                 <button className= "infoActiveBtn" 
                        /* 데이터 전송하는 곳 */
                        formAction='' 
-                       disabled={buttonDisabled}
+                       disabled={!isValidEmail || !isValidPassword || !isValidPasswordCheck}
                        onClick={onSubmitHandler}
                        >
-                    <Link to ='' disabled={buttonDisabled}>공팅 시작하기</Link>
+                    <Link to ='' >공팅 시작하기</Link>
                 </button>
             </div>
         </div>

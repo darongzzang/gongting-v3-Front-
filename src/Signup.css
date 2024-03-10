@@ -165,7 +165,25 @@ Button {
     font-weight: 500;
     letter-spacing: -0.3px;
 }
-.userInfoBox input {
+.invalidText{
+    color: #FF4B4B;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+}
+.invalid {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 12px;
+    justify-content: space-between;
+    align-items: center;
+
+    /* style  */
+    border-radius: 8px;
+    border: 1px solid #FF4B4B;
+}
+.userInfoBoxInput {
     display: flex;
     width: 100%;
     box-sizing: border-box;
@@ -177,7 +195,7 @@ Button {
     border-radius: 8px;
     border: 1px solid var(--Grays-gray300, #E0E0E0);
 }
-.userInfoBox input::placeholder {
+.userInfoBoxInput::placeholder {
     color: var(--Grays-gray400, #BDBDBD);
     font-size: 16px;
     font-weight: 500;
@@ -202,4 +220,15 @@ Button {
     transition: 0.5s;
     background: var(--Colors-main-color, #6869FF);
 
+}
+.infoActiveBtn a{
+    color: rgba(255, 255, 255, 0.80);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+    letter-spacing: -0.4px;
+}
+.infoActiveBtn:disabled {
+    background: #CDCBFF;
 }
