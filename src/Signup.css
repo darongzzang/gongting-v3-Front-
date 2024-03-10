@@ -43,6 +43,7 @@ Button {
     font-size: 24px;
     font-weight: 700;
     letter-spacing: -0.6px;
+    line-height: 130%; /* 31.2px */
 }
 .subText {
     align-self: stretch;

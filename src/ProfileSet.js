@@ -14,6 +14,7 @@ function ProfileSet() {
     const [isValidPassword, setIsValidPassword] = useState(false);
     const [isValidPasswordCheck, setIsValidPasswordCheck] = useState(false);
     const [buttonDisabled, setButtonDisabled] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
     const dispatch = useDispatch();
     //핸들러
     const onEmailHandler = (event) => {
@@ -84,45 +85,54 @@ function ProfileSet() {
         const buttonDisabled = (isValidEmail && isValidPassword && isValidPasswordCheck);
         setButtonDisabled(buttonDisabled);
     }
+    const handleCheckboxChange = () => {
+        setIsChecked(!isChecked);
+      };
     
    
 
     return (
         <div className='SignupInfoBody'>
             <p className='titleText'>
-                공팅을 시작하기 위해<br/>
-                아래 정보를 입력해주세요
+                자신을 소개해주세요!
             </p>
-            <div className='inputBoxes'>
+            <div className='profileInputBoxes'>
+                <p className='secondText'>기본 정보</p>
                 <div className='userInfoBox'>
                     <p className='userInfoBoxTitle'>
-                        이메일
+                        이름
                     </p>
                     <p className={`${Email && !isValidEmail ? 'invalidText' : 'inputBoxSub'}`}>
-                        {Email && !isValidEmail ? '이메일을 다시 확인해주세요' : '추후 로그인 시 아이디로 사용되어요'}
+                        {Email && !isValidEmail ? '이름을 입력해주세요' : ''}
                     </p>
-                    <input type='email' 
+                    <input type="text" 
                             className={`${Email && !isValidEmail ? 'invalid' : 'userInfoBoxInput'}`}
                             value={Email}
                             onBlur={() => checkEmailValid(Email)}
                             onChange={onEmailHandler}
-                            placeholder='이메일을 입력해주세요'>
+                            placeholder='이름을 입력해주세요'>
                     </input>
                 </div>
                 <div className='userInfoBox'>
                     <p className='userInfoBoxTitle'>
-                        비밀번호
+                        성별
                     </p>
                     <p className={`${Password && !isValidPassword ? 'invalidText' : 'inputBoxSub'}`}>
-                        {Password && !isValidPassword ? '다시 한번 비밀번호를 확인해주세요' : '영문, 숫자, 특수문자가 모두 들어간 8-16글자'}
+                        {Password && !isValidPassword ? '성별을 선택해주세요' : ''}
                     </p>
-                    <input type='password' 
-                            className={`${Password && !isValidPassword ? 'invalid' : 'userInfoBoxInput'}`}
-                            value={Password}
-                            onBlur={() => checkPasswordValid(Password)}
-                            onChange={onPasswordHandler}
-                            placeholder='비밀번호를 입력해주세요'>
-                    </input>
+                    <div className='checkBoxes'>
+                        <input type="checkbox" id="male" checked={isChecked} onChange={handleCheckboxChange}></input>
+                        <label htmlFor='male'
+                                style={{color: isChecked ? "" : "#616161"}}
+                                // ***************
+                                onClick={handleCheckboxChange}>
+                            <p>남성</p>
+                        </label>
+                        <input type="checkbox" id="female"></input>
+                        <label htmlFor='female'>
+                            <p>여성</p>
+                        </label>
+                    </div>
                 </div>
                 <div className='userInfoBox'>
                     <p className='userInfoBoxTitle'>

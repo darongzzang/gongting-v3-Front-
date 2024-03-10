@@ -1,0 +1,52 @@
+.secondText {
+    color: var(--Grays-gray900, #212121);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 130%; /* 23.4px */
+    letter-spacing: -0.45px;
+}
+.profileInputBoxes {
+    margin-top: 32px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+.checkBoxes {
+    display: flex;
+    gap: 12px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+.checkBoxes input {
+    display: none;
+}
+.checkBoxes label {
+    cursor: pointer;
+    display: flex;
+    padding: 14px 10px;
+    align-items: center;
+    flex: 1 0 0;
+
+    /* style  */
+    border-radius: 8px;
+    border: 1px solid #F7F7F7;
+    background: #F7F7F7;
+    color: var(--Grays-gray700, #616161);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.35px;
+}
+.checkBoxes input:checked label{
+    color: var(--Colors-main-color, #6869FF);
+    border: 1px solid var(--Colors-main-color, #6869FF);
+    background: rgba(104, 105, 255, 0.12);
+}
+.checkBoxes label p {
+    margin: 0 auto;
+}
+.maleChecked {
+
+}
