@@ -20,7 +20,7 @@ Button {
     height: 100vh;
     max-height: 1024px;
     margin: 0px auto;
-    background: #f0f0f0;
+    background: #fff;
     animation: gradient 15s ease infinite;
     padding: 100px 16px 32px 16px; 
     display: flex;
