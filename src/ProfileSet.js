@@ -7,16 +7,27 @@ import { useDispatch} from 'react-redux';
 import { loginUser } from "./_actions/user_actions";
 
 function ProfileSet() {
+    const [Name, setName] = useState("");
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
     const [PasswordCheck, setPasswordCheck] = useState("");
+    const [isValidName, setIsValidName] = useState(false);
     const [isValidEmail, setIsValidEmail] = useState(false);
     const [isValidPassword, setIsValidPassword] = useState(false);
     const [isValidPasswordCheck, setIsValidPasswordCheck] = useState(false);
     const [buttonDisabled, setButtonDisabled] = useState(false);
+    const [isCheckboxMale, setIsCheckboxMale] = useState(false);
+    const [isCheckboxFemale, setIsCheckboxFemale] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
     const dispatch = useDispatch();
+
     //핸들러
+    const onNameHandler = (event) => {
+        const nameValue = event.currentTarget.value;
+        setName(nameValue);
+        setIsValidName(nameValue)
+        // checkNameValid(nameValue);
+    }
     const onEmailHandler = (event) => {
         const emailValue = event.currentTarget.value;
         setEmail(emailValue);
@@ -71,25 +82,25 @@ function ProfileSet() {
             console.error('Error checking validity:', error);
         }
     }
-    // const emailExist = () => {
-    //     if(이메일이 이미 있다면){
-    //         isEmailAlreadyExists(true);
-    //     }
-    //     else {
-    //         isEmailAlreadyExists(false);
-    //     }
-    // }
 
     //버튼 활성화
     const checkButtonActivation = () => {
         const buttonDisabled = (isValidEmail && isValidPassword && isValidPasswordCheck);
         setButtonDisabled(buttonDisabled);
     }
-    const handleCheckboxChange = () => {
-        setIsChecked(!isChecked);
+    //체크박스
+    //1. 성별 체크박스
+    const handleCheckboxChange = (checkboxId) => {
+        if(checkboxId === 'male') {
+            setIsCheckboxMale(!isCheckboxMale);
+            setIsCheckboxFemale(isCheckboxMale);
+        }
+        else if(checkboxId === 'female') {
+            setIsCheckboxMale(isCheckboxFemale);
+            setIsCheckboxFemale(!isCheckboxFemale);
+        }
       };
     
-   
 
     return (
         <div className='SignupInfoBody'>
@@ -102,14 +113,13 @@ function ProfileSet() {
                     <p className='userInfoBoxTitle'>
                         이름
                     </p>
-                    <p className={`${Email && !isValidEmail ? 'invalidText' : 'inputBoxSub'}`}>
-                        {Email && !isValidEmail ? '이름을 입력해주세요' : ''}
+                    <p className={'inputBoxSub'}>
+                        {/* {!Name ? '이름을 입력해주세요' : ''} */}
                     </p>
                     <input type="text" 
-                            className={`${Email && !isValidEmail ? 'invalid' : 'userInfoBoxInput'}`}
-                            value={Email}
-                            onBlur={() => checkEmailValid(Email)}
-                            onChange={onEmailHandler}
+                            className={'userInfoBoxInput'}
+                            value={Name}
+                            onChange={onNameHandler}
                             placeholder='이름을 입력해주세요'>
                     </input>
                 </div>
@@ -117,21 +127,37 @@ function ProfileSet() {
                     <p className='userInfoBoxTitle'>
                         성별
                     </p>
-                    <p className={`${Password && !isValidPassword ? 'invalidText' : 'inputBoxSub'}`}>
-                        {Password && !isValidPassword ? '성별을 선택해주세요' : ''}
+                    <p className={'inputBoxSub'}>
+                        {/* {Password && !isValidPassword ? '성별을 선택해주세요' : ''} */}
                     </p>
                     <div className='checkBoxes'>
-                        <input type="checkbox" id="male" checked={isChecked} onChange={handleCheckboxChange}></input>
-                        <label htmlFor='male'
-                                style={{color: isChecked ? "" : "#616161"}}
-                                // ***************
-                                onClick={handleCheckboxChange}>
-                            <p>남성</p>
+                        <input
+                          type="checkbox"
+                          id="male"
+                          checked={isCheckboxMale}
+                          onChange={() => handleCheckboxChange('male')}
+                        />
+                        <label
+                          htmlFor='male'
+                          className={isCheckboxMale ? 'sexChecked' : 'sexNotChecked'}
+                          onChange={() => handleCheckboxChange('male')}
+                        >
+                          <p>남성</p>
                         </label>
-                        <input type="checkbox" id="female"></input>
-                        <label htmlFor='female'>
-                            <p>여성</p>
+                        <input
+                          type="checkbox"
+                          id="female"
+                          checked={isCheckboxFemale}
+                          onChange={() => handleCheckboxChange('female')}
+                        />
+                        <label
+                          htmlFor='female'
+                          className={isCheckboxFemale ? 'sexChecked' : 'sexNotChecked'}
+                          onChange={() => handleCheckboxChange('female')}
+                        >
+                          <p>여성</p>
                         </label>
+
                     </div>
                 </div>
                 <div className='userInfoBox'>
