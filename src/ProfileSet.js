@@ -161,19 +161,17 @@ function ProfileSet() {
                     </div>
                 </div>
                 <div className='userInfoBox'>
-                    <p className='userInfoBoxTitle'>
-                        비밀번호 확인
+                <p className='userInfoBoxTitle'>
+                        나이
                     </p>
-                    <p className={`${PasswordCheck && !isValidPasswordCheck ? 'invalidText' : 'inputBoxSub'}`}>
-                        {PasswordCheck && !isValidPasswordCheck ? '비밀번호와 일치하지 않아요' : ''}
+                    <p className={'inputBoxSub'}>
+                        {/* {!Name ? '이름을 입력해주세요' : ''} */}
                     </p>
-                    <input type='password'
-                        className={`${PasswordCheck && !isValidPasswordCheck ? 'invalid' : 'userInfoBoxInput'}`}
-                        value={PasswordCheck}
-                        onBlur={() => checkPasswordCheckValid(Password)}
-                        onChange={onPasswordCheckHandler} 
-                            placeholder='비밀번호를 한번 더 입력해주세요'>
-
+                    <input type="text" 
+                            className={'userInfoBoxInput'}
+                            value={Age}
+                            onChange={onNameHandler}
+                            placeholder='나이를 입력해주세요. 숫자만 가능합니다.'>
                     </input>
                 </div>
             </div>
